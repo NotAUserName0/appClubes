@@ -1,20 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConfiguracionComponent } from './components/configuracion/configuracion.component';
-import { EntradasComponent } from './components/entradas/entradas.component';
-import { MainComponent } from './components/main/main.component';
-import { MensajesComponent } from './components/mensajes/mensajes.component';
-import { NoPageFoundComponent } from './components/no-page-found/no-page-found.component';
-import { PerfilComponent } from './components/perfil/perfil.component';
 
 const routes: Routes = [
-  {path:'', redirectTo : 'home', pathMatch : 'full'},
-  {path:'home', component : MainComponent},
-  {path:'entradas', component : EntradasComponent},
-  {path:'mensajes', component : MensajesComponent},
-  {path:'perfil', component: PerfilComponent},
-  {path: 'configuracion', component: ConfiguracionComponent},
-  {path:'**', component: NoPageFoundComponent}
+  {path: '', children: [
+    {path: 'entrada', loadChildren: () => import('./entradas/entradas.module').then(res => res.EntradasModule)},
+    {path: 'perfil', loadChildren: () => import('./perfil/perfil.module').then(res => res.PerfilModule)},
+    {path: 'mensajes', loadChildren: () => import('./mensajes/mensajes.module').then(res => res.MensajesModule)},
+    {path: 'configuracion', loadChildren: () => import('./configuracion/configuracion.module').then(res => res.ConfiguracionModule)},
+    {path: '**', redirectTo: 'entrada'}
+  ]}
 ];
 
 @NgModule({
