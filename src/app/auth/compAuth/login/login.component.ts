@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../../services/user.service';
+
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,9 @@ import { UserService } from '../../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userService : UserService, private router : Router) { }
+  errorLog:boolean;
+
+  constructor(private userService : UserService, private route : Router, private cookie : CookieService) { }
 
   log = new FormGroup({
     user : new FormControl('link',[Validators.required]),
@@ -24,9 +28,15 @@ export class LoginComponent implements OnInit {
     //console.log(JSON.stringify(this.log.value));
     this.userService.loger(JSON.stringify(this.log.value)).subscribe(
       respuesta => {
-        console.log(respuesta);
+        if(respuesta.message == "User does'nt exist" || respuesta.message =="Wrong Password"){
+          this.errorLog = true;
+        }else{
+          this.errorLog = false;
+          this.cookie.set("token",respuesta.token);
+          this.route.navigate(['entrada']);
+        } 
       }
-    )
+    );
   }
 
 }

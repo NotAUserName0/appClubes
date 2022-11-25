@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { NoPageFoundComponent } from './components/no-page-found/no-page-found.component';
+import { SessionGuard } from './guardsApp/session.guard';
 
 const routes: Routes = [
 
-  {path:'', component:HomeComponent, children:[
+  {path:'', component:HomeComponent, children:[ //guard
     {path: '', redirectTo: 'entrada', pathMatch: 'full'},
     {path: 'entrada', loadChildren: () => import('./entradas/entradas.module').then(res => res.EntradasModule)},
     {path: 'perfil', loadChildren: () => import('./perfil/perfil.module').then(res => res.PerfilModule)},
@@ -13,7 +14,7 @@ const routes: Routes = [
     {path: 'configuracion', loadChildren: () => import('./configuracion/configuracion.module').then(res => res.ConfiguracionModule)},
     {path: 'users', loadChildren: () => import('./usuarios/usuarios.module').then(res => res.UsuariosModule)},
     {path: 'coordinador', loadChildren: () => import('./coordinador/coordinador.module').then(res => res.CoordinadorModule)},
-  ]},
+  ],canActivate:[SessionGuard]},
   {path: 'auth', loadChildren: () => import('./auth/auth.module').then(res => res.AuthModule)},
   {path: '', redirectTo:'', pathMatch: 'full'},
   {path:'**', component: NoPageFoundComponent}

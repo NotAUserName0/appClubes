@@ -1,5 +1,6 @@
 <div class="divForm">
     <form class="box" [formGroup]="log" (ngSubmit)="login()">
+        <small *ngIf="errorLog"> Wrong User or Password </small>
         <div class="mb-3">
             <label for="usr" class="form-label">User : </label>
             <input type="email" class="form-control" id="usr" formControlName="user">
