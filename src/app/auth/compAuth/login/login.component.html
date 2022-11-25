@@ -1,13 +1,13 @@
 <div class="divForm">
-    <form action="" method="post" class="box">
+    <form class="box" [formGroup]="log" (ngSubmit)="login()">
         <div class="mb-3">
             <label for="usr" class="form-label">User : </label>
-            <input type="email" class="form-control" id="usr" placeholder="name@example.com">
+            <input type="email" class="form-control" id="usr" formControlName="user">
         </div>
         <div class="mb-3">
             <label for="pass" class="form-label">Password : </label>
-            <input type="password" class="form-control" id="pass">
+            <input type="password" class="form-control" id="pass" formControlName="pass">
         </div>
-        <a [routerLink]="['']">Enter</a>
+        <button [disabled]="log.invalid" type="submit" class="btn btn-primary mb-3"> Entrar </button>
     </form>
 </div>

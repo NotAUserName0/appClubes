@@ -11,7 +11,7 @@ export class LogoutComponent implements OnInit {
   constructor(private route : Router) { }
 
   ngOnInit(): void {
-    this.route.navigate(['/auth']); //separar login de logout y redirigiendo comprobando
+    this.route.navigate(['/auth/login']); //separar login de logout y redirigiendo comprobando
                                     //si ya esta cerrada la sesion redirigir si no cerrar sesion
   }
 
