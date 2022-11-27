@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   loger(user:any):Observable<Responses>{
-    console.log(user);
+    //console.log(user);
     return this.http.post<Responses>(`${this.URL}user/index`,user);
   }
 

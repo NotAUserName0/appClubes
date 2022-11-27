@@ -17,11 +17,12 @@ export class LoginComponent implements OnInit {
   constructor(private userService : UserService, private route : Router, private cookie : CookieService) { }
 
   log = new FormGroup({
-    user : new FormControl('link',[Validators.required]),
-    pass : new FormControl('root',[Validators.required])
+    user : new FormControl('jay',[Validators.required]),
+    pass : new FormControl('1234',[Validators.required])
   });
 
   ngOnInit(): void {
+    this.cookie.delete("token");
   }
 
   login(){

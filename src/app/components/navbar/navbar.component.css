@@ -1,0 +1,11 @@
+.usr{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+p{
+    margin-bottom: 0;
+}

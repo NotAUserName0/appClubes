@@ -8,6 +8,9 @@ import { NoPageFoundComponent } from './components/no-page-found/no-page-found.c
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { RoleDirective } from './directives/role.directive';
+import { GetTokenInfoService } from './services/get-token-info.service';
+import {  AuthInterceptorProvider } from './auth/auth.interceptor';
 
 
 
@@ -16,13 +19,14 @@ import { CookieService } from 'ngx-cookie-service';
     AppComponent,
     NavbarComponent,
     NoPageFoundComponent,
-    HomeComponent
+    HomeComponent,
+    RoleDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [CookieService],
+  providers: [CookieService,GetTokenInfoService,AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

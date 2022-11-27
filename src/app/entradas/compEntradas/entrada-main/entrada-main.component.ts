@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PruebaService } from '../../services/prueba.service';
 
 @Component({
   selector: 'app-entrada-main',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntradaMainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pruebaService : PruebaService) { }
 
   ngOnInit(): void {
+    this.solicitud();
+  }
+
+  solicitud(){
+    this.pruebaService.prueba().subscribe(
+      res => {
+        console.log(res);
+      }
+    );
   }
 
 }
