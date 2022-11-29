@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EntradaGenComponent } from './compEntradas/entrada-gen/entrada-gen.component';
@@ -11,7 +10,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes),HttpClientModule],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
   providers: [
     PruebaService

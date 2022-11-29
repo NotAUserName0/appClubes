@@ -1,4 +1,6 @@
+<div class="background">
 <div class="divForm">
+    <h1>Clubes Escom</h1>
     <form class="box" [formGroup]="log" (ngSubmit)="login()">
         <small *ngIf="errorLog"> Wrong User or Password </small>
         <div class="mb-3">
@@ -11,4 +13,7 @@
         </div>
         <button [disabled]="log.invalid" type="submit" class="btn btn-primary mb-3"> Entrar </button>
     </form>
+    <footer>@NotAUserName 2022</footer>
 </div>
+</div>
+

@@ -4,18 +4,18 @@ import { CommonModule } from '@angular/common';
 import { EntradasRoutingModule } from './entradas-routing.module';
 import { EntradaMainComponent } from './compEntradas/entrada-main/entrada-main.component';
 import { EntradaGenComponent } from './compEntradas/entrada-gen/entrada-gen.component';
-import { HttpClientModule } from '@angular/common/http';
+import { EntradaComponent } from "./compEntradas/entrada/entrada.component";
 
 
 @NgModule({
-  declarations: [
-    EntradaMainComponent,
-    EntradaGenComponent
-  ],
-  imports: [
-    CommonModule,
-    EntradasRoutingModule
-    
-  ]
+    declarations: [
+        EntradaMainComponent,
+        EntradaGenComponent,
+        EntradaComponent
+    ],
+    imports: [
+        CommonModule,
+        EntradasRoutingModule,
+    ]
 })
 export class EntradasModule { }

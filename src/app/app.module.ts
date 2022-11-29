@@ -10,7 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { RoleDirective } from './directives/role.directive';
 import { GetTokenInfoService } from './services/get-token-info.service';
-import {  AuthInterceptorProvider } from './auth/auth.interceptor';
+import {  AuthInterceptor } from './auth/auth.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -26,7 +27,7 @@ import {  AuthInterceptorProvider } from './auth/auth.interceptor';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [CookieService,GetTokenInfoService,AuthInterceptorProvider],
+  providers: [CookieService,GetTokenInfoService,{provide: HTTP_INTERCEPTORS,useClass: AuthInterceptor,multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

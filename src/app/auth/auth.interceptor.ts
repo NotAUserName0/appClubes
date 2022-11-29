@@ -3,11 +3,9 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor,
-  HTTP_INTERCEPTORS
+  HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { GetTokenInfoService } from '../services/get-token-info.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
@@ -19,9 +17,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
     const token = this.getToken();
 
-    if(!token){
+    /*if(!token){
       return next.handle(request);
-    }
+    }*/
 
     const headers = request.clone({
       headers: request.headers.set('Authorization',`Bearer ${token}`)
@@ -33,10 +31,4 @@ export class AuthInterceptor implements HttpInterceptor {
   getToken(){
     return this.cookie.get('token');
   }
-}
-
-export const AuthInterceptorProvider = {
-  provide: HTTP_INTERCEPTORS,
-  useClass: AuthInterceptor,
-  multi: true
 }
