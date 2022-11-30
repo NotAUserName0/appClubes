@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(private userService : UserService, private route : Router, private cookie : CookieService) { }
 
   log = new FormGroup({
-    user : new FormControl('jay',[Validators.required]),
+    user : new FormControl('Marcornejo',[Validators.required]),
     pass : new FormControl('1234',[Validators.required])
   });
 

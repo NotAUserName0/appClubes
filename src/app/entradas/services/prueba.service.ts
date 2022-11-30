@@ -8,7 +8,8 @@ import { Prueba } from '../models/prueba.model';
 })
 export class PruebaService {
 
-  URL="http://localhost/api-prueba/";
+  URL="http://localhost/api-prueba-login/";
+  //http://localhost/api-prueba/
 
   constructor(private http: HttpClient) { }
 
