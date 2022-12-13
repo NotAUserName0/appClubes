@@ -3,19 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { EntradasRoutingModule } from './entradas-routing.module';
 import { EntradaMainComponent } from './compEntradas/entrada-main/entrada-main.component';
-import { EntradaGenComponent } from './compEntradas/entrada-gen/entrada-gen.component';
-import { EntradaComponent } from "./compEntradas/entrada/entrada.component";
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
     declarations: [
-        EntradaMainComponent,
-        EntradaGenComponent,
-        EntradaComponent
+        EntradaMainComponent
     ],
     imports: [
         CommonModule,
         EntradasRoutingModule,
+        FormsModule,
+        ReactiveFormsModule
     ]
 })
 export class EntradasModule { }

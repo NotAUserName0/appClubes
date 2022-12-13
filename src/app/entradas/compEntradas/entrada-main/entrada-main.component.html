@@ -1,3 +1,64 @@
 <h1> Entradas recientes </h1>
 
-<app-entrada></app-entrada>
+<form [formGroup]="addPost" (ngSubmit)="publicar()" class="base">
+
+    <div class="mb-3 entrada">
+        <label for="exampleFormControlTextarea1" class="form-label">¿Que quieres compartir?</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" 
+        rows="3" formControlName="contenido"></textarea>
+        <div class="invalid" *ngIf="errorLog">
+            <span class="material-icons-outlined">error_outline</span>
+            <small> Tienes que llenar los datos </small>
+        </div>
+        <button class="btn btn-success" type="submit">Publicar</button>
+    </div>
+
+</form>
+
+<div class="valid" *ngIf="added">
+    <span class="material-icons-outlined">done</span>
+    <small> Publicado </small>
+</div>
+
+<div class="invalid" *ngIf="addedError">
+    <span class="material-icons-outlined">error_outline</span>
+    <small> Error al publicar </small>
+</div>
+
+<div class="base" *ngFor="let entrada of entradas">
+    <div class="post-head">
+        <img class="pic" src="data:image/jpeg;base64,{{entrada.prof_pic}}">
+        <span class="post-data">
+            <p class="usr-name">{{entrada.user}}</p>
+            <small>{{entrada.fecha}} a las {{entrada.hora}}</small>
+        </span>
+
+        
+        <div class="extra">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Editar</a></li>
+              <li><a class="dropdown-item" href="#">Eliminar</a></li>
+              <li><a class="dropdown-item" href="#">Añadir a priority</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <hr>
+    <div class="post-content">
+        <p>{{entrada.contenido}}</p>
+    </div>
+    <hr>
+    <div class="post-footer">
+        <a href="" style="margin-right: 20px ;" class="good">    
+            <span class="material-icons-outlined">thumb_up</span>
+            <span class="material-icons filed-L">thumb_up</span>
+            <p>{{entrada.good}}</p>
+        </a>
+        <a href="" class="bad">
+            <span class="material-icons-outlined">thumb_down_alt</span>
+            <span class="material-icons filed-B">thumb_down_alt</span>
+            <p>{{entrada.bad}}</p>
+        </a>
+    </div>
+</div>

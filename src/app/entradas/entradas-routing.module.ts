@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EntradaGenComponent } from './compEntradas/entrada-gen/entrada-gen.component';
 import { EntradaMainComponent } from './compEntradas/entrada-main/entrada-main.component';
-import { PruebaService } from './services/prueba.service';
+import { PostsService } from './services/posts.service';
+
 
 const routes: Routes = [
   {path: '' , component: EntradaMainComponent},
-  {path: 'addEntrada/:id', component: EntradaGenComponent}
+  //{path: 'addEntrada/:id', component: EntradaGenComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
   providers: [
-    PruebaService
+    PostsService
   ]
 })
 export class EntradasRoutingModule { }

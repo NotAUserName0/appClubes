@@ -1,0 +1,159 @@
+h1{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.base{
+    border: 1px solid black;
+    width: 50%;
+    border-radius: 15px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.entrada{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.btn{
+    margin-top: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.invalid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    margin: 10px;
+}
+
+.invalid > small{
+    margin-left: 10px;
+}
+
+.valid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    margin: 10px;
+}
+
+.valid > small{
+    margin-left: 10px;
+}
+
+.post-head{
+    display: flex;
+    position: relative;
+}
+
+.pic{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.extra{
+    position: absolute;
+    float: right;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+.post-data{
+    margin-left: 10px;
+}
+
+.post-data > p,small{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.usr-name{
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+hr{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-content{
+    margin-left: 120px;
+}
+
+.post-footer{
+    text-align: end;
+    margin-right: 50px;
+    margin-bottom: 10px;
+}
+
+.post-footer > a{
+    display: inline-flex;
+}
+
+.post-footer > a > p{
+    margin-left: 5px;
+}
+
+/*///////////////////////*/
+
+.good{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: black;
+    margin-right: 5px;
+}
+
+.good .filed-L{
+    display: none; /*  DISPLAY INLINE ON JS */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.good:hover .filed-L{
+    display: inline;
+}
+
+.bad{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: black;
+    margin-right: 5px;
+}
+
+.bad .filed-B{
+    display: none; /*  DISPLAY INLINE ON JS */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.bad:hover .filed-B{
+    display: inline;
+}
+
+a{
+    text-decoration: none;
+}

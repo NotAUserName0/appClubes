@@ -7,7 +7,7 @@ import { UserService } from './services/user.service';
 const routes: Routes = [
   {path: '', children:[
     {path: '', redirectTo: 'login', pathMatch: 'full'},
-    {path: 'login', component:LoginComponent,canActivate:[LogedGuard]}
+    {path: 'login', component:LoginComponent/*,canActivate:[LogedGuard]*/}
   ]},
 ];
 
